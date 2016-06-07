@@ -7,6 +7,7 @@ modData = step(hMod,data);
 ampImb = 10; %dB
 txReal = exp(0.5*ampImb/20)*real(modData);
 txImag = exp(-0.5*ampImb/20)*imag(modData);
-txSig  = complex(txReal,txImag);
+txSig  = complex(txReal,txImag)
 rxSig = step(hAWGN,txSig);
+plot(data,modData)
 step(hScope,rxSig)

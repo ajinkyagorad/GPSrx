@@ -1,4 +1,4 @@
-% from http://www.mathworks.com/matlabcentral/fileexchange/14670-gps-c-a-code-generator/content/cacode.m
+    % from http://www.mathworks.com/matlabcentral/fileexchange/14670-gps-c-a-code-generator/content/cacode.m
 function g=cacode(sv,fs)
 % function G=CACODE(SV,FS) 
 % Generates 1023 length C/A Codes for GPS PRNs 1-37

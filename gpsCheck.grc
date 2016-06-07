@@ -128,11 +128,11 @@
     </param>
     <param>
       <key>file</key>
-      <value></value>
+      <value>/media/ajinkya/Windows/Users/Ajinkya/Desktop/Tt/SEM5/ProfProject/GPS_Rx/data</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(208, 220)</value>
+      <value>(112, 219)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -250,7 +250,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(600, 175)</value>
+      <value>(616, 166)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -286,7 +286,7 @@
     </param>
     <param>
       <key>fac_size</key>
-      <value>32768</value>
+      <value>512</value>
     </param>
     <param>
       <key>title</key>
@@ -298,7 +298,7 @@
     </param>
     <param>
       <key>win_size</key>
-      <value>1024</value>
+      <value></value>
     </param>
     <param>
       <key>y_per_div</key>
