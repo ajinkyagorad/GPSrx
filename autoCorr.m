@@ -1,5 +1,5 @@
 fID=fopen('data');
-readSize = 4E5;
+readSize = 1E5;
 data=fread(fID,readSize);
 A = split_vect(data,2);
 B = A(:,1)+i*A(:,2);
