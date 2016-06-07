@@ -18,24 +18,25 @@ title('Correlation with code')
 xlabel('index')
 ylabel('correlated value')
 figure(2)
-title('Filtered Response')
-xlabel('index')
-ylabel('avg Value')
+%title('Filtered Response')
+%xlabel('index')
+%ylabel('avg Value')
 %Add a filter parameters
-a = 1;
 N = 300;
-b = ones(1,N)/N;
-
-for k=1:3
+%figure(3)
+%stitle('avg input signal')
+%plot(smooth(abs(B),2000));
+for k=1:28
     g = cacode([k],10/1.023);   % doing at 10Mhz, c/a code sampling
-    r = xcorr(B,g);
-    %r_f= filter(b,a,abs(r));
-    r_f = smooth(r,N);
+    g1023 = repmat(g,1,1023);
+    r = xcorr(B,g1023);
+    
+    %r_f = smooth(r,N);
     figure(1);
     plot(abs(r));
     hold on
     
-    figure(2)
-    plot(abs(r_f));
-    hold on
+    %figure(2)
+    %plot(abs(r_f));
+    %hold on
 end
