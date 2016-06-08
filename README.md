@@ -15,3 +15,6 @@
 ####Things to do next!!!
 * -[ ] what exactly is the format of GNUradio .bin file?
 * -[x] check the CA code correlation on the simulated noise!
+* -[x] Correlate 1.9 GB of GPS data,
+        No results yet...
+* -[ ] gather new data from USRP.
