@@ -12,4 +12,4 @@
 
 ####Things to do next!!!
 * what exactly is the format of GNUradio .bin file?
-* check the CA code correlation on the simulated noise ! [checkmark]
+* check the CA code correlation on the simulated noise ![checkmark]
