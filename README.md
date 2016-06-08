@@ -11,5 +11,5 @@
   ![Img](https://raw.githubusercontent.com/ajinkyagorad/GPSrx/master/img/sim_noise.jpg)
 
 ####Things to do next!!!
-* what exactly is the format of GNUradio .bin file?
-* check the CA code correlation on the simulated noise ![checkmark]
+* -[ ] what exactly is the format of GNUradio .bin file?
+* -[x] check the CA code correlation on the simulated noise!
