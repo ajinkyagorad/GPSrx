@@ -5,6 +5,8 @@
 * By correlating the received signal (which looks like noise) by the C/A PRN code, GPS receivers receive data from satellites
 
 ##Results
+* How PRN gold codes look like?, here are g5 and g17 C/A codes
+  ![Img](https://raw.githubusercontent.com/ajinkyagorad/GPSrx/master/img/PRNgcode.jpg)
 * Correlation with USRP data for 37 C/A codes
   ![Img](https://raw.githubusercontent.com/ajinkyagorad/GPSrx/master/img/37CAcodeCorr.jpg)
 * Under simulated noise conditions, from SNR of -20dB to 0dB, input attenuated, with 5 same cacode
