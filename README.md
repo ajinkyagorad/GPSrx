@@ -7,7 +7,9 @@
 ##Results
 * Correlation with USRP data for 37 C/A codes
   ![Img](https://raw.githubusercontent.com/ajinkyagorad/GPSrx/master/img/37CAcodeCorr.jpg)
+* Under simulated noise conditions, from SNR of -40dB to 0dB, detectable fairly upto -30dB of SNR
+  ![Img](https://raw.githubusercontent.com/ajinkyagorad/GPSrx/master/img/sim_noise.jpg)
 
 ####Things to do next!!!
-* what exactly is the format of GNUradio .bin file?
-* check the CA code correlation on the simulated noise !
+* -[ ] what exactly is the format of GNUradio .bin file?
+* -[x] check the CA code correlation on the simulated noise!
