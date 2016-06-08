@@ -9,16 +9,15 @@ g_s = repmat([g,zeros(1,2*q)],[1 5]); %repeat the code 5 times
 g_db = pow2db(bandpower(g_s));%find power of g code we have
 
 
-for SNR =20:-10:0 % SNR from -40 to 0
-    
-noise_db = SNR+g_db; 
+for SNR =-20:10:0 % SNR from -40 to 0
+noise_db = -SNR+g_db; 
 [p q] = size(g_s); 
 attenuation_db = -noise_db;
 attn = 10^(attenuation_db/20);
-g_s = attn*g_s;     % attenuate  the signal to get desired SNR
+g_s_a = attn*g_s;     % attenuate  the signal to get desired SNR
 noise = wgn(p,q,0); % gaussian white noise , size of g_s
-signal = noise+g_s; % add noise to pure signal
-r = xcorr(signal,g_s); % check correlation with the signal
+signal = noise+g_s_a; % add noise to pure signal
+r = xcorr(signal,g_s_a); % check correlation with the signal
 t = (1:length(signal))/10E6;
 % plot 
 subplot(2,1,1)
@@ -35,5 +34,5 @@ xlabel('time')
 ylabel('amplitude');
 hold on
 end
-legend('40dB','30dB','20dB','10dB','0dB');
+legend('20dB','10dB','0dB');
 
