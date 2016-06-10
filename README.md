@@ -18,4 +18,5 @@
 * -[x] check the CA code correlation on the simulated noise!
 * -[x] Correlate 1.9 GB of raw signal GPS data,
         No sharp spikes, outcomes yet...
-* -[ ] gather new data from USRP.
+* -[ ] construct time domain sinc filtered signal from gold codes with data representation similar to GPS signal
+* -[ ] resample the signal simulating Doppler effect due to satellite and predict Doppler shift from GPS signal buried under nois
