@@ -33,6 +33,6 @@ for kk = 1:length(ca_codes)
     r = xcorr(B,g20);
     figure(2);
     r_s = smooth(r,smoothingN);
-    plot(fft(abs(r_s)));
+    plot(abs(r_s));
     hold on
 end
