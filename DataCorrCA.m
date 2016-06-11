@@ -28,11 +28,11 @@ B = A(:,1)+i*A(:,2);
 
 for kk = 1:length(ca_codes)
     k = ca_codes(kk);
-    g = cacode([k],sampling_rate_Mhz/1.023)-0.5;   % doing at 10Mhz, c/a code sampling
+    g = 2*(cacode([k],sampling_rate_Mhz/1.023)-0.5);   % doing at 10Mhz, c/a code sampling
     g20 = repmat(g,1,20);
     r = xcorr(B,g20);
     figure(2);
     r_s = smooth(r,smoothingN);
-    plot(abs(fft(abs(r_s))));
+    plot(fft(abs(r_s)));
     hold on
 end
