@@ -3,13 +3,16 @@
 clear
 
 g = cacode([5],10/1.023); %@ 10MHz
+figure(3);
+plot(g)
+
 [p q] = size(g);
 %generate stream of g code
 g_s = repmat([g,zeros(1,2*q)],[1 5]); %repeat the code 5 times
 g_db = pow2db(bandpower(g_s));%find power of g code we have
 
-
-for SNR =-20:10:0 % SNR from -40 to 0
+figure(1)
+for SNR =-20:10:-10 % SNR from -40 to 0
 noise_db = -SNR+g_db; 
 [p q] = size(g_s); 
 attenuation_db = -noise_db;

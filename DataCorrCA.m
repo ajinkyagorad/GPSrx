@@ -2,13 +2,13 @@
 clear
 %parameteres
 sampling_rate_Mhz =10;
-time = 40E-3;
-ca_codes =[2 3 5 20]
+time = 60E-3;
+ca_codes =[24 26]
 smoothingN = 1000;
 % read data from file
 fID=fopen('data');
 %1.79 GB ~ 20 sec
-
+    
 bytesPerSec= (1.79*1024*1024*1024)/20;
 bytes = time*bytesPerSec;
 readSize = [2 floor(bytes/2)];
@@ -19,20 +19,21 @@ data=fread(fID,readSize);
 A = data';
 % B has the complex actual sampled data by SDR/USRP
 B = A(:,1)+i*A(:,2);
-
+B = B';
  figure(2)
  title('Response')
  xlabel('index')    
  ylabel('avg Value')
 %Add a filter parameters
-
+ 
 for kk = 1:length(ca_codes)
     k = ca_codes(kk);
     g = 2*(cacode([k],sampling_rate_Mhz/1.023)-0.5);   % doing at 10Mhz, c/a code sampling
-    g20 = repmat(g,1,20);
-    r = xcorr(B,g20);
-    figure(2);
-    r_s = smooth(r,smoothingN);
-    plot(abs(r_s));
+    g20 = repmat(g,1,20);   % repeat matrix g 20 times gggg....ggg
+    r = xcorr(abs(B),g20);
+    %figure(2);
+    %f = fft(r);
+    %r_s = smooth(r,smoothingN);    
+    plot(r);
     hold on
 end

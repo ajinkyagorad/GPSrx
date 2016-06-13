@@ -1,7 +1,9 @@
-fID=fopen('data');
-readSize = 1E6;
+    fID=fopen('data');
+readSize = [2 2E6];
 data=fread(fID,readSize);
-A = split_vect(data,2);
-B = A(:,1)+i*A(:,2);
-y = autocorr(B,5000);
-plot(abs(y))
+A = data';
+B = A(:,1)+i*A(:,2);    
+y = xcorr(B,B);
+ys=smooth(y,1000);
+r = y(2.5E6:3.5E6)-ys(2.5E6:3.5E6);
+plot(abs(r))

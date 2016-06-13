@@ -10,9 +10,11 @@ for i=1:length(D)
     else
         bitSpread = -G;
     end
-    mD = [mD bitSpread];
+    mD = [mD bitSpread]; % concatenate the signal
 end
+
 t = [1:length(mD)]/chipFreq;
 y = xcorrlx(mD,G);
 
-plot(t,y)
+
+plot(t,y);
