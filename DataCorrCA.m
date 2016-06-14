@@ -20,12 +20,13 @@ A = data';
 % B has the complex actual sampled data by SDR/USRP
 B = A(:,1)+i*A(:,2);
 B = B';
+
+ 
+
+ B = decimate(B,5);sampling_rate_Mhz=2; %Add a filter parameters
+ leg  = cell(1,length(ca_codes));
  figure(2)
- title('Response')
- xlabel('index')    
- ylabel('avg Value')
-%Add a filter parameters
- B = decimate(B,5);sampling_rate_Mhz=2;
+ hold all;
 for kk = 1:length(ca_codes)
     k = ca_codes(kk);
     g = 2*(cacode([k],sampling_rate_Mhz/1.023)-0.5);   % doing at 10Mhz, c/a code sampling
@@ -34,6 +35,10 @@ for kk = 1:length(ca_codes)
     %figure(2);
     %f = fft(r);
     %r_s = smooth(r,smoothingN);    
+    leg{kk}=['CA',num2str(k)];
     plot(abs(r));
-    hold on
 end
+title('Response')
+xlabel('index')    
+ylabel('avg Value')
+legend(leg)
