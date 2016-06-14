@@ -7,8 +7,11 @@
 ##Results
 * How PRN gold codes look like?, here are g5 and g17 C/A codes
   ![Img](https://raw.githubusercontent.com/ajinkyagorad/GPSrx/master/img/PRNgcode.jpg)
-
-####Things to do next!!!
+* Results Yet, correlation of raw signal with all the 37 CA codes
+  ![Img](https://raw.githubusercontent.com/ajinkyagorad/GPSrx/master/img/all37_1.jpg)
+* With self simulated data without noise, the power of correlation
+* ![Img](https://raw.githubusercontent.com/ajinkyagorad/GPSrx/master/img/cdmaGPSsim.jpg)
+####Check List!!!
 * -[x] check the CA code correlation on the simulated noise!
 * -[x] Correlate Code spreaded data with the cacode, simulation
 * -[ ] construct time domain sinc filtered signal from gold codes with data representation similar to GPS signal
