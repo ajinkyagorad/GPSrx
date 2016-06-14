@@ -2,7 +2,7 @@
 % with very low SNR ~-20 dB, look for correlation of C/A code
 clear
 
-g = cacode([5],10/1.023); %@ 10MHz
+g = 2*(cacode([5],10/1.023)-0.5); %@ 10MHz
 figure(3);
 plot(g)
 
@@ -12,7 +12,7 @@ g_s = repmat([g,zeros(1,2*q)],[1 5]); %repeat the code 5 times
 g_db = pow2db(bandpower(g_s));%find power of g code we have
 
 figure(1)
-for SNR =-20:10:-10 % SNR from -40 to 0
+for SNR =-10:-10:-20 % SNR from -40 to 0
 noise_db = -SNR+g_db; 
 [p q] = size(g_s); 
 attenuation_db = -noise_db;
@@ -20,7 +20,7 @@ attn = 10^(attenuation_db/20);
 g_s_a = attn*g_s;     % attenuate  the signal to get desired SNR
 noise = wgn(p,q,0); % gaussian white noise , size of g_s
 signal = noise+g_s_a; % add noise to pure signal
-r = xcorr(signal,g_s_a); % check correlation with the signal
+r = xcorr(signal,g); % check correlation with the signal
 t = (1:length(signal))/10E6;
 % plot 
 subplot(2,1,1)
