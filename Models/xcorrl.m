@@ -4,7 +4,7 @@ function z = xcorrl(x,y)
 lx = length(x);
 ly = length(y);
 
-    for k=1:lx-ly+1
-        z(k) = x(k:k+ly-1)*y';
+    for k=1:1000:lx-ly+1
+        z(ceil(k/1000)) = x(k:k+ly-1)*y';
     end
 end
