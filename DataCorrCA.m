@@ -3,7 +3,7 @@ clear
 %parameteres
 sampling_rate_Mhz =10;
 time = 100E-3;
-ca_codes =[9 22 15];
+ca_codes =[1:37];
 smoothingN = 1E4;
 % read data from file
 fID=fopen('data');
@@ -21,8 +21,6 @@ A = data';
 B = A(:,1)+i*A(:,2);
 B = B';
 
- 
-
  B = decimate(B,5);sampling_rate_Mhz=2; %Add a filter parameters
  leg  = cell(1,length(ca_codes));
  figure(2)
@@ -36,7 +34,7 @@ for kk = 1:length(ca_codes)
     %f = fft(r);
     %r_s = smooth(r,smoothingN);    
     leg{kk}=['CA',num2str(k)];
-    plot(abs(r));
+    plot(abs(r),'LineWidth',1);
 end
 title('Response')
 xlabel('index')    
