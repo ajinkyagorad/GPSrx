@@ -11,6 +11,10 @@ end
 hold on
 plot(y,'o')
 plot(t,z)
+title('Discrete Samples after sinc filter');
+xlabel('index')
+ylabel('value')
+legend('sin(X)','\Sigma Sinc');
 
 
 
