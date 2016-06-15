@@ -1,5 +1,5 @@
 %simulate the gps signal received by the GPS
-D = [ 1 0 0 1 0 1 0 1]; % data to be sent
+D = [ 1 0 0 1 0 1 0 1 1 1 1 1 0 0 0 0 0]; % data to be sent
 ca = 3;
 G = 2*(cacode([ca])-0.5); %  spreading code
 mD=0; %modulated data
@@ -16,7 +16,9 @@ for i=1:length(D)
 end
 leg = [leg '@g' num2str(ca)]
 t = [1:length(mD)]/chipFreq;
-y = xcorrlx(mD,G);
+[p q] = size(mD);
+mDs =0.2*mD+wgn(p,q,0);
+y = xcorrlx(mDs,G);
 plot(t,y);
 legend(leg);
 title('Correlation with spreaded signal')
