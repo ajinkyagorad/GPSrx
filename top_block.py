@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Thu Jun 09 22:01:51 2016
+# Generated: Tue Jun 21 04:38:56 2016
 ##################################################
 
 if __name__ == '__main__':
@@ -45,9 +45,9 @@ class top_block(grc_wxgui.top_block_gui):
         # Variables
         ##################################################
         self.volume = volume = 1
-        self.transition = transition = 20E3
+        self.transition = transition = 10E3
         self.samp_rate = samp_rate = 2E6
-        self.quadrature = quadrature = 500E3
+        self.quadrature = quadrature = 250E3
         self.frequency = frequency = 145.96E6
         self.cuttoff = cuttoff = 40E3
 
@@ -164,9 +164,9 @@ class top_block(grc_wxgui.top_block_gui):
         self.connect((self.analog_wfm_rcv_0, 0), (self.rational_resampler_xxx_0, 0))    
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.audio_sink_0, 0))    
         self.connect((self.low_pass_filter_0, 0), (self.analog_wfm_rcv_0, 0))    
-        self.connect((self.low_pass_filter_0, 0), (self.wxgui_fftsink2_1, 0))    
         self.connect((self.rational_resampler_xxx_0, 0), (self.blocks_multiply_const_vxx_0, 0))    
         self.connect((self.rtlsdr_source_0, 0), (self.low_pass_filter_0, 0))    
+        self.connect((self.rtlsdr_source_0, 0), (self.wxgui_fftsink2_1, 0))    
         self.connect((self.rtlsdr_source_0, 0), (self.wxgui_waterfallsink2_0, 0))    
 
     def get_volume(self):
