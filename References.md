@@ -7,6 +7,7 @@ Following links were referenced :
 * [1 bit ADC](http://www.paulallenengineering.com/blog/noise-oversampling-and-a-1-bit-ad) and a short video description [here](https://www.youtube.com/watch?v=DTCtx9eNHXE)
 * [1 bit processing  of BOC](http://www.tesa.prd.fr/docs/journalTESA/1-bit%20Processing%20of%20Composite%20BOC%20(CBOC)%20Signals%20and%20Extension%20to%20Time-Multiplexed%20BOC%20(TMBOC)%20Signals.pdf)
 * [GNSS SDR](http://gnss-sdr.org/node/50), contains specs about RTL-SDR
-* [A homemade GPS Receiver](http://www.aholme.co.uk/GPS/Main.htm)j
+* [A homemade GPS Receiver](http://www.aholme.co.uk/GPS/Main.htm)
 * [Satellite Signal Acquisition, Tracking, and Data Demodulation] (http://www.artechhouse.com/uploads/public/documents/chapters/kaplan_894_CH05.pdf)
 * [A homemade receiver for GPS & GLONASS satellites](http://lea.hamradio.si/~s53mv/navsats/theory.html)
+* [GPS simulated signal Generation](http://www.insidegnss.com/special/elib/National_Instruments_GPS_Rx_Testing_tutorial.pdf)
