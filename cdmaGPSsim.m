@@ -17,9 +17,9 @@ end
 leg = [leg '@g' num2str(ca)]
 t = [1:length(mD)]/chipFreq;
 [p q] = size(mD);
-mDs =0.2*mD+wgn(p,q,0);
-y = xcorrlx(mDs,G);
-plot(t,y);
+mDs =0.02*mD+wgn(p,q,0);
+y = xcorrlx(mDs,G,1);
+plot(y);
 legend(leg);
 title('Correlation with spreaded signal')
 xlabel('index')
