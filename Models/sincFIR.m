@@ -1,7 +1,8 @@
 %sinc filter design
+%Equivalend to Rectangular filter in Frequency domain
 clear
 X = [1:100];
-y = sin(X);
+y = X.*sin(X);
 F = @(x) sinc(x);
 t = -1:0.1:100;
 z = 0;
