@@ -1,9 +1,9 @@
 %Correlate GPS data with the C/A codes
 clear
 %parameteres
-sampling_rate_Mhz =10;
-time = 100E-3;
-ca_codes =[14 27];
+sampling_rate_Mhz =5;
+time = 20E-3;
+ca_codes =[1:2:10];
 smoothingN = 1E4;
 % read data from file
 fID=fopen('data');
@@ -15,12 +15,13 @@ readSize = [2 floor(bytes/2)];
 disp('Read Size(MB): ');
 disp(bytes/1024/1024);
 k = waitforbuttonpress;
-data=fread(fID,readSize);
-A = data';
-% B has the complex actual sampled data by SDR/USRP
-B = A(:,1)+i*A(:,2);
-B = B';
-B = abs(B); % merge both in phase and quadrature component into one
+data=fread(fID,readSize,'float32');
+% A = data';
+% % B has the complex actual sampled data by SDR/USRP
+% B = A(:,1)+i*A(:,2);
+% B = B';
+% B = abs(B); % merge both in phase and quadrature component into one
+B = data(1,:)+i*data(2,:);
 
  %B = decimate(B,5);sampling_rate_Mhz=2; %Add a filter parameters
  leg  = cell(1,length(ca_codes));
@@ -35,7 +36,7 @@ for kk = 1:length(ca_codes)
     %f = fft(r);
     %r_s = smooth(r,smoothingN);    
     leg{kk}=['CA',num2str(k)];
-    plot(r);
+    plot(abs(r));
 end
 title('Response')
 xlabel('index')    
