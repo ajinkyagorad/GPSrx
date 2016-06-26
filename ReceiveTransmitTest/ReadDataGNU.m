@@ -1,15 +1,14 @@
 clear
 fid = fopen('FMsink');
-data = fread(fid,[2 2000],'float32');
-r = data(1,:);
-img = data(2,:);
-c = r+i*img;
+ bytes = getfield(dir('FMsink'), 'bytes');
+data = fread(fid,[2 bytes/4/2],'float32');
+I = data(1,:);
+Ib = sign(I);
+Q = data(2,:);
+Qb = sign(Q);
+data = Ib+Qb*i;
 
-for theta=0:0.1:6.28*10
-    cor = c*exp(i*theta);
-    plot(real(cor))
-    hold on
-    plot(imag(cor))
-    hold off
-    pause(0.1);
-end
+fWriteReal = fopen('r.bin','w');
+fwrite(fWriteReal,Ib);
+fclose(fWriteReal);
+
