@@ -89,7 +89,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>7500</value>
+      <value>7099</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -97,7 +97,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(968, 125)</value>
+      <value>(96, 261)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -125,7 +125,7 @@
     </param>
     <param>
       <key>start</key>
-      <value>7000</value>
+      <value>-10000</value>
     </param>
     <param>
       <key>step</key>
@@ -168,7 +168,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>1E6</value>
+      <value>2.046E6</value>
     </param>
   </block>
   <block>
@@ -195,7 +195,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>C:\Users\Ajinkya\Desktop\Tt\SEM5\ProfProject\GPS_Rx\ReceiveTransmitTest\FMsink</value>
+      <value>C:\Users\Ajinkya\Desktop\Tt\SEM5\ProfProject\GPS_Rx\ReceiveTransmitTest\SimGPSsink</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -2391,7 +2391,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(64, 71)</value>
+      <value>(160, 79)</value>
     </param>
     <param>
       <key>_rotation</key>
