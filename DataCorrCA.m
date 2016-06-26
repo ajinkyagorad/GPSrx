@@ -2,8 +2,8 @@
 clear
 %parameteres
 sampling_rate_Mhz =5;
-time = 20E-3;
-ca_codes =[1:2:10];
+time = 500E-3;
+ca_codes =[1:1:37];
 smoothingN = 1E4;
 % read data from file
 fID=fopen('data');
