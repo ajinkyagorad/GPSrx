@@ -1,21 +1,16 @@
-%Correlate GPS data with the C/A codes
-clear
+%%Correlate GPS data with the C/A codes
+clear;
 %parameteres
-sampling_rate_Mhz =5;
-time = 500E-3;
-ca_codes =[1:1:37];
-smoothingN = 1E4;
+ca_codes =[1:1:37]; % array conntaining all the CA codes
+sampling_rate_Mhz =10;
+time = 50E-3;
+datalen = time *sampling_rate_Mhz*1E6;
 % read data from file
 fID=fopen('data');
-%1.79 GB ~ 20 sec
-    
-bytesPerSec= (1.79*1024*1024*1024)/20;
-bytes = time*bytesPerSec;
-readSize = [2 floor(bytes/2)];
-disp('Read Size(MB): ');
-disp(bytes/1024/1024);
+fileSize = datalen * 8 % filesize in bytes
 k = waitforbuttonpress;
-data=fread(fID,readSize,'float32');
+disp('...');
+data=fread(fID,[2 datalen],'float32');
 % A = data';
 % % B has the complex actual sampled data by SDR/USRP
 % B = A(:,1)+i*A(:,2);
@@ -23,22 +18,24 @@ data=fread(fID,readSize,'float32');
 % B = abs(B); % merge both in phase and quadrature component into one
 B = data(1,:)+i*data(2,:);
 
- %B = decimate(B,5);sampling_rate_Mhz=2; %Add a filter parameters
- leg  = cell(1,length(ca_codes));
- figure(2)
- hold all;
+%B = decimate(B,5);sampling_rate_Mhz=2; %Add a filter parameters
+leg  = cell(1,length(ca_codes));
+
+%hold all;
 for kk = 1:length(ca_codes)
     k = ca_codes(kk);
     g = 2*(cacode([k],sampling_rate_Mhz/1.023)-0.5);   % doing at 10Mhz, c/a code sampling
-    g20 = repmat(g,1,20);   % repeat matrix g 20 times gggg....ggg
-    r = xcorr(B,g20);
+    %g20 = repmat(g,1,20);   % repeat matrix g 20 times gggg....ggg
+    r = xcorrlx(real(B),g,1);
     %figure(2);
     %f = fft(r);
     %r_s = smooth(r,smoothingN);    
-    leg{kk}=['CA',num2str(k)];
-    plot(abs(r));
+    %leg{kk}=['CA',num2str(k)];
+    pause(1)
+    plot(r);
+    
 end
-title('Response')
-xlabel('index')    
-ylabel(' Value')
-legend(leg)
+% title('Response')
+% xlabel('index')    
+% ylabel(' Value')
+% legend(leg)
